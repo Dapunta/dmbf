@@ -307,19 +307,20 @@ def _pass_list_(_cici_):
     _dapunta_=[]
     for i in _cici_.split(" "):
         if len(i)<3:
-            continue 
+            continue
         else:
             i=i.lower()
             if len(i)==3 or len(i)==4 or len(i)==5:
                 _dapunta_.append(i+"123")
                 _dapunta_.append(i+"12345")
-            elif len(i)>=6:
+            else:
                 _dapunta_.append(i)
                 _dapunta_.append(i+"123")
                 _dapunta_.append(i+"12345")
-            else:
-                continue
     _dapunta_.append(_cici_.lower())
+    _dapunta_.append("sayang")
+    _dapunta_.append("bismillah")
+    _dapunta_.append("anjing")
     return _dapunta_
 
 ### Logger Crack
