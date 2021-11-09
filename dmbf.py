@@ -78,7 +78,6 @@ ua_windows = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, li
 
 ### Penampungan
 _id_tampung_ = []
-_dapunta_    = []
 _result_     = []
 
 ### Jangan Diganti Nanti Error !!!
@@ -324,6 +323,7 @@ def _likers_dev_(_tok_dev_):
 
 ### Generate Password
 def _pass_list_(_cici_):
+    _dapunta_ = []
     for _suci_salsabila_ in _cici_.split(" "):
         if len(_suci_salsabila_)<3:
             continue
