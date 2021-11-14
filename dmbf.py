@@ -56,8 +56,8 @@ _U_ = "\x1b[0;95m" # Ungu
 ### Logo
 _logo_line_1_ = ('%s ___  __  __ ___ ___ '%(_P_))
 _logo_line_2_ = ('%s|   \|  \/  | _ ) __| %s┌─────────────────────────┐'%(_P_,_U_))
-_logo_line_3_ = ('%s| |) | |\/| | _ \ _|  %s│   %s• Code By Dapunta •   %s│'%(_P_,_U_,_P_,_U_))
-_logo_line_4_ = ('%s|___/|_|  |_|___/_|   %s│ %sGithub.com/Dapunta/dmbf %s│'%(_P_,_U_,_P_,_U_))
+_logo_line_3_ = ('%s| |) | |\/| | _ \ _|  %s│   %s• Code By Bintang XD •   %s│'%(_P_,_U_,_P_,_U_))
+_logo_line_4_ = ('%s|___/|_|  |_|___/_|   %s│ %sGithub.com/bot-85/dmbf %s│'%(_P_,_U_,_P_,_U_))
 _logo_line_5_ = ('%s XNSCODE Team 2021    └─────────────────────────┘'%(_U_))
 def _my_logo_():
     _dapunta_cici_(_logo_line_1_)
